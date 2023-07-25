@@ -6,6 +6,9 @@ import { fetchBreeds } from './js/cat-api.js';
 //     select: '.breed-select'
 //   })
 
+const selectEl = document.querySelector('.breed-select')
+
+
 fetchBreeds()
   .then(renderCatCard)
   .catch(error => {
@@ -15,3 +18,5 @@ fetchBreeds()
 function renderCatCard(cats) {
   console.log(cats);
 }
+
+
