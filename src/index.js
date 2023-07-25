@@ -1,10 +1,10 @@
-import SlimSelect from 'slim-select'
+// import SlimSelect from 'slim-select'
 import axios from "axios";
 import {fetchBreeds} from "./js/cat-api.js"
 
-new SlimSelect({
-    select: '.breed-select'
-  })
+// new SlimSelect({
+//     select: '.breed-select'
+//   })
 // axios.defaults.headers.common["x-api-key"] = `${API_KEY}`;
   
 fetchBreeds()
