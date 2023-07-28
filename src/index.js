@@ -1,7 +1,9 @@
-//== Підключення бібліотеки Slim Select ==
+//======== Підключення бібліотек ========
 import SlimSelect from 'slim-select';
 import 'slim-select/dist/slimselect.css';
-// =======================================
+import Notiflix from 'notiflix';
+// ======================================
+
 import { fetchBreeds, fetchCatByBreed } from './js/cat-api.js';
 
 const selectEl = document.querySelector('.breed-select');
@@ -39,8 +41,8 @@ function onBreedSelect(e) {
 
 function createMarkup(url, name, description, temperament) {
   const catInfoHTML = `<img src="${url}" alt="${name}" width=100%>
-      <h1>${name}</h1>
-      <p>${description}</p>      
-      <p><strong>Temperament:&#160;</strong>${temperament}</p>`;
+                       <h1>${name}</h1>
+                       <p>${description}</p>
+                       <p><strong>Temperament:&#160;</strong>${temperament}</p>`;
   divEl.innerHTML = catInfoHTML;
 }
