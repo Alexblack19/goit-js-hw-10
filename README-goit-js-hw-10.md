@@ -1,239 +1,67 @@
 # goit-js-hw-10
-===================
-Критерії приймання
-===================
-    Створено репозиторій goit-js-hw-09.
-    Домашня робота містить два посилання для кожного проекту: на вихідні файли і робочу сторінку на GitHub Pages.
-    В консолі відсутні помилки і попередження під час відкриття живої сторінки завдання.
-    Проект зібраний за допомогою parcel-project-template (https://github.com/goitacademy/parcel-project-template).
-    Код відформатований за допомогою Prettier.
+=================
+Критерії прийому
+=================
+    Створений репозиторій goit-js-hw-10.
+    При здачі домашньої роботи є два посилання: на вихідні файли та робочу сторінку на GitHub Pages.
+    При відвідуванні живої сторінки завдання, консоль не містить помилок і попереджень.
+    Проєкт зібрано за допомогою parcel-project-template (https://github.com/goitacademy/parcel-project-template).
+    Код відформатовано Prettier.
 ===============
 Стартові файли
 ===============
-Завантажуй стартові файли (https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/goitacademy/javascript-homework/tree/main/v2/09/src) з готовою розміткою, стилями та підключеними файлами скриптів для кожного завдання. Скопіюй їх собі в проект, повністю замінивши папку src у parcel-project-template (https://github.com/goitacademy/parcel-project-template).
-
-================================
-Завдання 1 - перемикач кольорів
-================================
-Виконуй це завдання у файлах 01-color-switcher.html і 01-color-switcher.js. Подивися демо-відео роботи перемикача (https://user-images.githubusercontent.com/17479434/127716753-fabd276f-6a7d-411b-bfa2-01c818f4ea66.mp4).
-
-HTML містить кнопки «Start» і «Stop».
-
-<button type="button" data-start>Start</button>
-<button type="button" data-stop>Stop</button>
-
-Напиши скрипт, який після натискання кнопки «Start», раз на секунду змінює колір фону <body> на випадкове значення, використовуючи інлайн стиль. Натисканням на кнопку «Stop» зміна кольору фону повинна зупинятися.
-Увага
-
-Враховуй, що на кнопку «Start» можна натиснути нескінченну кількість разів. Зроби так, щоб доки зміна теми запущена, кнопка «Start» була неактивною (disabled).
-
-Для генерування випадкового кольору використовуй функцію getRandomHexColor.
-
-function getRandomHexColor() {
-  return `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, 0)}`;
-}
-
-=======================================
-Завдання 2 - таймер зворотного відліку
-=======================================
-Виконуй це завдання у файлах 02-timer.html і 02-timer.js. Напиши скрипт таймера, який здійснює зворотний відлік до певної дати. Такий таймер може використовуватися у блогах та інтернет-магазинах, сторінках реєстрації подій, під час технічного обслуговування тощо. Подивися демо-відео роботи таймера (https://user-images.githubusercontent.com/17479434/127672390-2a51efe1-06fb-41dd-86dd-8542393d3043.mp4).
-Елементи інтерфейсу
-
-HTML містить готову розмітку таймера, поля вибору кінцевої дати і кнопку, по кліку на яку, таймер повинен запускатися. Додай мінімальне оформлення елементів інтерфейсу.
-
-<input type="text" id="datetime-picker" />
-<button type="button" data-start>Start</button>
-
-<div class="timer">
-  <div class="field">
-    <span class="value" data-days>00</span>
-    <span class="label">Days</span>
-  </div>
-  <div class="field">
-    <span class="value" data-hours>00</span>
-    <span class="label">Hours</span>
-  </div>
-  <div class="field">
-    <span class="value" data-minutes>00</span>
-    <span class="label">Minutes</span>
-  </div>
-  <div class="field">
-    <span class="value" data-seconds>00</span>
-    <span class="label">Seconds</span>
-  </div>
-</div>
+Завантаж стартовий файл index.html (https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/goitacademy/javascript-homework/tree/main/v2/10/src) з базовою розміткою завдання. Скопіюй його собі до проєкту в папці src в parcel-project-template (https://github.com/goitacademy/parcel-project-template).
 =====================
-Бібліотека flatpickr
+Завдання - Котопошук
 =====================
-Використовуй бібліотеку flatpickr (https://flatpickr.js.org/) для того, щоб дозволити користувачеві кросбраузерно вибрати кінцеву дату і час в одному елементі інтерфейсу. Для того щоб підключити CSS код бібліотеки в проект, необхідно додати ще один імпорт, крім того, що описаний в документації.
-
-// Описаний в документації
-import flatpickr from "flatpickr";
-// Додатковий імпорт стилів
-import "flatpickr/dist/flatpickr.min.css";
-
-Бібліотека очікує, що її ініціалізують на елементі input[type="text"], тому ми додали до HTML документу поле input#datetime-picker.
-
-<input type="text" id="datetime-picker" />
-
-Другим аргументом функції flatpickr(selector, options) можна передати необов'язковий об'єкт параметрів. Ми підготували для тебе об'єкт, який потрібен для виконання завдання. Розберися, за що відповідає кожна властивість в документації «Options» (https://flatpickr.js.org/options/), і використовуй його у своєму коді.
-
-const options = {
-  enableTime: true,
-  time_24hr: true,
-  defaultDate: new Date(),
-  minuteIncrement: 1,
-  onClose(selectedDates) {
-    console.log(selectedDates[0]);
-  },
-};
-===========
-Вибір дати
-===========
-Метод onClose() з об'єкта параметрів викликається щоразу під час закриття елемента інтерфейсу, який створює flatpickr. Саме у ньому варто обробляти дату, обрану користувачем. Параметр selectedDates - це масив обраних дат, тому ми беремо перший елемент.
-
-    Якщо користувач вибрав дату в минулому, покажи window.alert() з текстом "Please choose a date in the future".
-    Якщо користувач вибрав валідну дату (в майбутньому), кнопка «Start» стає активною.
-    Кнопка «Start» повинна бути неактивною доти, доки користувач не вибрав дату в майбутньому.
-    Натисканням на кнопку «Start» починається відлік часу до обраної дати з моменту натискання.
+Створи фронтенд частину застосунку для пошуку інформації про кота за його породою. Подивися демо відео роботи програми (https://textbook.edu.goit.global/lms-js-homework/v2/uk/assets/medias/catsearch-demo-7a9eca87a69c1131c828592a49f6f647.mp4), використовуй його як орієнтир для необхідного функціоналу.
 ============
-Відлік часу
+HTTP-запити
 ============
-Натисканням на кнопку «Start» скрипт повинен обчислювати раз на секунду, скільки часу залишилось до вказаної дати, і оновлювати інтерфейс таймера, показуючи чотири цифри: дні, години, хвилини і секунди у форматі xx:xx:xx:xx.
+Використовуй публічний The Cat API (https://thecatapi.com/). Для початку роботи необхідно зареєструватися й отримати унікальний ключ доступу, щоб прикріплювати його до кожного запиту. Заходимо на головну сторінку (https://thecatapi.com/) та натискаємо нижче кнопку Signup for free, дотримуємося інструкції, ключ буде надіслано на вказану пошту.
 
-    Кількість днів може складатися з більше, ніж двох цифр.
-    Таймер повинен зупинятися, коли дійшов до кінцевої дати, тобто 00:00:00:00.
+Для використання ключа необхідно використовувати HTTP-заголовок x-api-key. Рекомендується використовувати axios та додати заголовок до всіх запитів.
 
-Не будемо ускладнювати
+import axios from "axios";
 
-Якщо таймер запущений, для того щоб вибрати нову дату і перезапустити його - необхідно перезавантажити сторінку.
+axios.defaults.headers.common["x-api-key"] = "твій ключ";
+===============
+Колекція порід
+===============
+Під час завантаження сторінки має виконуватися HTTP-запит за колекцією порід. Для цього необхідно виконати GET-запит на ресурс https://api.thecatapi.com/v1/breeds, що повертає масив об'єктів. У разі успішного запиту, необхідно наповнити select.breed-select опціями так, щоб value опції містило id породи, а в інтерфейсі користувачеві відображалася назва породи.
 
-Для підрахунку значень використовуй готову функцію convertMs, де ms - різниця між кінцевою і поточною датою в мілісекундах.
+Напиши функцію fetchBreeds(), яка виконує HTTP-запит і повертає проміс із масивом порід - результатом запиту. Винеси її у файл cat-api.js та зроби іменований експорт.
+====================
+Інформація про кота
+====================
+Коли користувач обирає якусь опцію в селекті, необхідно виконувати запит за повною інформацією про кота на ресурс https://api.thecatapi.com/v1/images/search. Не забудь вказати в цьому запиті параметр рядка запиту breed_ids з ідентифікатором породи.
 
-function convertMs(ms) {
-  // Number of milliseconds per unit of time
-  const second = 1000;
-  const minute = second * 60;
-  const hour = minute * 60;
-  const day = hour * 24;
+Ось як буде виглядати URL-запит для отримання повної інформації про собаку за ідентифікатором породи:
 
-  // Remaining days
-  const days = Math.floor(ms / day);
-  // Remaining hours
-  const hours = Math.floor((ms % day) / hour);
-  // Remaining minutes
-  const minutes = Math.floor(((ms % day) % hour) / minute);
-  // Remaining seconds
-  const seconds = Math.floor((((ms % day) % hour) % minute) / second);
+https://api.thecatapi.com/v1/images/search?breed_ids=ідентифікатор_породи
 
-  return { days, hours, minutes, seconds };
-}
+Напиши функцію fetchCatByBreed(breedId), яка очікує ідентифікатор породи, робить HTTP-запит і повертає проміс із даними про кота - результатом запиту. Винеси її у файл cat-api.js і зроби іменований експорт.
 
-console.log(convertMs(2000)); // {days: 0, hours: 0, minutes: 0, seconds: 2}
-console.log(convertMs(140000)); // {days: 0, hours: 0, minutes: 2, seconds: 20}
-console.log(convertMs(24140000)); // {days: 0, hours: 6 minutes: 42, seconds: 20}
-==================
-Форматування часу
-==================
-Функція convertMs() повертає об'єкт з розрахованим часом, що залишився до кінцевої дати. Зверни увагу, що вона не форматує результат. Тобто, якщо залишилося 4 хвилини або будь-якої іншої складової часу, то функція поверне 4, а не 04. В інтерфейсі таймера необхідно додавати 0, якщо в числі менше двох символів. Напиши функцію addLeadingZero(value), яка використовує метод padStart() і перед рендерингом інтефрейсу форматує значення.
-Бібліотека повідомлень
-Увага
+Якщо запит був успішний, під селектом у блоці div.cat-info з'являється зображення і розгорнута інформація про кота: назва породи, опис і темперамент.
+===============================
+Опрацювання стану завантаження
+===============================
+Поки відбувається будь-який HTTP-запит, необхідно показувати завантажувач - елемент p.loader. Поки запитів немає або коли запит завершився, завантажувач необхідно приховувати. Використовуй для цього додаткові CSS класи.
 
-Наступний функціонал не обов'язковий для здавання завдання, але буде хорошою додатковою практикою.
+    Поки виконується запит за списком порід, необхідно приховати select.breed-select та показати p.loader.
+    Поки виконується запит за інформацією про кота, необхідно приховати div.cat-info та показати p.loader.
+    Як тільки будь-який запит завершився, p.loader треба приховати.
+====================
+Опрацювання помилки
+====================
+Якщо у користувача сталася помилка під час будь-якого HTTP-запиту, наприклад, впала мережа, була втрата пакетів тощо, тобто проміс було відхилено, необхідно відобразити елемент p.error, а при кожному наступному запиті приховувати його. Використовуй для цього додаткові CSS класи.
 
-Для відображення повідомлень користувачеві, замість window.alert(), використовуй бібліотеку notiflix (https://github.com/notiflix/Notiflix#readme).
+Протестувати працездатність відображення помилки дуже просто - зміни адресу запиту додавши в кінець будь-який символ, наприклад замість https://api.thecatapi.com/v1/breeds використай https://api.thecatapi.com/v1/breeds123. Запит отримання списку порід буде відхилено з помилкою. Аналогічно для запиту інформації про кота за породою.
+==========
+Інтерфейс
+==========
+    Додай мінімальне оформлення елементів інтерфейсу.
+    Замість select.breed-select можеш використовувати будь-яку бібліотеку з красивими селектом, наприклад https://slimselectjs.com/
+    Замість p.loader можеш використовувати будь-яку бібліотеку з красивими CSS-завантажувачами, наприклад https://cssloaders.github.io/
+    Завантажувач p.error можеш використовувати будь-яку бібліотеку з гарними сповіщеннями, наприклад Notiflix (https://github.com/notiflix/Notiflix#readme)
 
-================================
-Завдання 3 - генератор промісів
-================================
-Виконуй це завдання у файлах 03-promises.html і 03-promises.js. Подивися демо-відео роботи генератора промісів (https://user-images.githubusercontent.com/17479434/127932183-42232f26-4db2-4614-86bc-6bec54b1d6a4.mp4).
-
-HTML містить розмітку форми, в поля якої користувач буде вводити першу затримку в мілісекундах, крок збільшення затримки для кожного промісу після першого і кількість промісів, яку необхідно створити.
-
-<form class="form">
-  <label>
-    First delay (ms)
-    <input type="number" name="delay" required />
-  </label>
-  <label>
-    Delay step (ms)
-    <input type="number" name="step" required />
-  </label>
-  <label>
-    Amount
-    <input type="number" name="amount" required />
-  </label>
-  <button type="submit">Create promises</button>
-</form>
-
-Напиши скрипт, який на момент сабміту форми викликає функцію createPromise(position, delay) стільки разів, скільки ввели в поле amount. Під час кожного виклику передай їй номер промісу (position), що створюється, і затримку, враховуючи першу затримку (delay), введену користувачем, і крок (step).
-
-function createPromise(position, delay) {
-  const shouldResolve = Math.random() > 0.3;
-  if (shouldResolve) {
-    // Fulfill
-  } else {
-    // Reject
-  }
-}
-
-Доповни код функції createPromise таким чином, щоб вона повертала один проміс, який виконується або відхиляється через delay часу. Значенням промісу повинен бути об'єкт, в якому будуть властивості position і delay зі значеннями однойменних параметрів. Використовуй початковий код функції для вибору того, що потрібно зробити з промісом - виконати або відхилити.
-
-createPromise(2, 1500)
-  .then(({ position, delay }) => {
-    console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
-  })
-  .catch(({ position, delay }) => {
-    console.log(`❌ Rejected promise ${position} in ${delay}ms`);
-  });
-
-Бібліотека повідомлень
-Увага
-
-Наступний функціонал не обов'язковий для здавання завдання, але буде хорошою додатковою практикою.
-
-Для відображення повідомлень користувачеві, замість console.log(), використовуй бібліотеку notiflix (https://github.com/notiflix/Notiflix#readme).
-//
-============
-Від ментора
-============
-Привіт
-Ось ви вже й дійшли до асинхронного JS. :канцелярская_кнопка:
-ДЗ виконуємо згідно ТЗ
-Перед здачею домашнього завдання переконайтеся, що всі скрипти підключені та не закоментовані. Перевіряйте кожне виконане завдання відповідно з технічним завданням
-На 9 модулі ми продовжимо працювати з бібліотеками
-Об'єкт Promise використовується для відкладених та асинхронних обчислень, і так як мова програмування javascript однопоточна, тому одночасно кілька дій він виконувати не може - для цього і існують асинхронні операції.
-Вам потрібно розібратися з тим, як працюють асинхронні функції і в який момент вони починають своє виконання. Які стани бувають у промісу і що вони означають, а також для чого потрібен метод then() при роботі з промісами.
-Для цього закріплюю для вас посилання з корисною інформацією.
-Асинхронний js -https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Introducing
-Об'єкт Promise - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-Метод then() -https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then
-setTimeout, setInterval https://developer.mozilla.org/ru/docs/Web/API/WindowTimers/setTimeout https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval
-developer.mozilla.orgdeveloper.mozilla.org
-Introducing asynchronous JavaScript - Learn web development | MDN
-In this article, we'll explain what asynchronous programming is, why we need it, and briefly discuss some of the ways asynchronous functions have historically been implemented in JavaScript. (24 kB)
-https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Introducing
-
-developer.mozilla.orgdeveloper.mozilla.org
-Promise - JavaScript | MDN
-The Promise object represents the eventual completion (or failure) of an asynchronous operation and its resulting value. (24 kB)
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-developer.mozilla.orgdeveloper.mozilla.org
-Promise.prototype.then() - JavaScript | MDN
-The then() method of Promise instances takes up to two arguments: callback functions for the fulfilled and rejected cases of the Promise. It immediately returns an equivalent Promise object, allowing you to chain calls to other promise methods. (24 kB)
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then
-
-developer.mozilla.orgdeveloper.mozilla.org
-WindowTimers.setTimeout() - Интерфейсы веб API | MDN
-Вызов функции или выполнение фрагмента кода после указанной задержки. (24 kB)
-https://developer.mozilla.org/ru/docs/Web/API/WindowTimers/setTimeout
-
-developer.mozilla.orgdeveloper.mozilla.org
-setInterval() global function - Web APIs | MDN
-The setInterval() method,
-offered on the Window and Worker interfaces, repeatedly
-calls a function or executes a code snippet, with a fixed time delay between each
-call. (24 kB)
-https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval
-==============
