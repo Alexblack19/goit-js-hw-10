@@ -1,6 +1,6 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
-.visually-hidden {
+.is-hidden {
     position: absolute;
   
     width: 1px;

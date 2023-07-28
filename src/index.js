@@ -23,6 +23,25 @@ fetchBreeds()
 
 selectEl.addEventListener('change', onBreedSelect);
 
-function onBreedSelect(e) {}
+function onBreedSelect(e) {
+  const breedId = e.target.value;
+  fetchCatByBreed(breedId)
+    .then(data => {
+      console.log(data);
+      const { breeds, url } = data[0];
+      const { name, description, temperament } = breeds[0];
+      console.table(url, name, description, temperament);
+      createMarkup(url, name, description, temperament);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+}
 
-function createMarkup() {}
+function createMarkup(url, name, description, temperament) {
+  const catInfoHTML = `<img src="${url}" alt="${name}">
+      <h1>${name}</h1>
+      <p>${description}</p>
+      <p>Temperament:${temperament}</p>`;
+  divEl.innerHTML = catInfoHTML;
+}
