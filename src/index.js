@@ -1,5 +1,5 @@
 //== Підключення бібліотеки Slim Select ==
-import SlimSelect from 'slim-select'
+import SlimSelect from 'slim-select';
 import 'slim-select/dist/slimselect.css';
 // =======================================
 import { fetchBreeds, fetchCatByBreed } from './js/cat-api.js';
@@ -12,10 +12,10 @@ fetchBreeds()
     const markup = data
       .map(({ id, name }) => `<option value="${id}">${name}</option>`)
       .join();
-    selectEl.insertAdjacentHTML("beforeend", markup);
+    selectEl.insertAdjacentHTML('beforeend', markup);
     new SlimSelect({
-      select: '.breed-select'
-    })
+      select: '.breed-select',
+    });
   })
   .catch(error => {
     console.log(error);
