@@ -12,7 +12,7 @@ fetchBreeds()
     const markup = data
       .map(({ id, name }) => `<option value="${id}">${name}</option>`)
       .join();
-    selectEl.innerHTML = markup;
+    selectEl.insertAdjacentHTML("beforeend", markup);
     new SlimSelect({
       select: '.breed-select'
     })
