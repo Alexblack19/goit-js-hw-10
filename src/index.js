@@ -12,19 +12,17 @@ fetchBreeds()
     const markup = data
       .map(({ id, name }) => `<option value="${id}">${name}</option>`)
       .join();
-    selectEl.insertAdjacentHTML('beforeend', markup);
+    selectEl.innerHTML = markup;
     new SlimSelect({
       select: '.breed-select',
     });
   })
   .catch(error => {
-    console.log(error);    
+    console.log(error);
   });
 
-  selectEl.addEventListener('change', onBreedSelect);
+selectEl.addEventListener('change', onBreedSelect);
 
-function onBreedSelect(e) {
-  console.dir(e.target);  
-}
+function onBreedSelect(e) {}
 
-
+function createMarkup() {}
