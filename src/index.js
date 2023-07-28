@@ -11,8 +11,6 @@ const divEl = document.querySelector('.cat-info');
 const loaderEl = document.querySelector('.loader');
 const errorEl = document.querySelector('.error');
 
-loaderEl.classList.add('is-hidden');
-
 fetchBreeds()
   .then(data => {
     const markup = data
