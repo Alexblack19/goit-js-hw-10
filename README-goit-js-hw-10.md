@@ -65,3 +65,31 @@ https://api.thecatapi.com/v1/images/search?breed_ids=ідентифікатор_
     Замість p.loader можеш використовувати будь-яку бібліотеку з красивими CSS-завантажувачами, наприклад https://cssloaders.github.io/
     Завантажувач p.error можеш використовувати будь-яку бібліотеку з гарними сповіщеннями, наприклад Notiflix (https://github.com/notiflix/Notiflix#readme)
 
+
+=======================
+Інформація від ментора
+=======================
+Всім привіт!
+ДЗ традиційно виконуємо згідно ТЗ
+Робота із запитами на сервер – це дуже важлива частина вивчення js. Вся робота з api запитами - це асинхронний код і дуже важливо розуміти як він працює на відміну від синхронного.
+Для запитів на сервер можна використовувати fetch це дефолтний метод js який дозволяє легко та логічно отримувати ресурси через мережу асинхронно.
+Так само є бібліотеки за допомогою яких можна дуже зручно працювати з запитами, наведу одну з таких в додаткових матеріалах внизу.
+AJAX (Asynchronous Javascript And Xml) - технологія звернення до сервера без перезавантаження сторінки. За рахунок цього зменшується час відгуку та веб-додаток з інтерактивності більше нагадує desktop.
+Незважаючи на те, що в назві технології є буква X (від слова XML), використовувати XML зовсім не обов'язково. Під AJAX мають на увазі будь-яке спілкування з сервером без перезавантаження сторінки, організоване за допомогою JavaScript.
+====================
+Додаткові матеріали:
+====================
+Fetch - https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+Бібліотека для роботи із запитами Axios - https://github.com/axios/axios
+developer.mozilla.orgdeveloper.mozilla.org
+Using the Fetch API - Web APIs | MDN
+The Fetch API provides a JavaScript interface for accessing and manipulating parts of the protocol, such as requests and responses. It also provides a global fetch() method that provides an easy, logical way to fetch resources asynchronously across the network. (24 kB)
+https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+
+axios/axios
+Promise based HTTP client for the browser and node.js
+Website
+https://axios-http.com
+Stars
+101020
+Added by GitHub
