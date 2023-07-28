@@ -1,0 +1,2 @@
+!function(){var n="https://api.thecatapi.com",o="live_9WSo2Jn9CKnphyJArmkanU7amzSO2MnioxrGT7XMimNpxzxlc0kjKpWz3hL08Pnd";document.querySelector(".breed-select");fetch("".concat(n,"/").concat("v1/breeds","?api-key=").concat(o)).then((function(n){if(!n.ok)throw new Error(n.status);return n.json()})).then((function(n){console.log(n)})).catch((function(n){console.log(n)}))}();
+//# sourceMappingURL=index.d8738885.js.map
