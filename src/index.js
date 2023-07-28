@@ -25,10 +25,11 @@ selectEl.addEventListener('change', onBreedSelect);
 
 function onBreedSelect(e) {
   const breedId = e.target.value;
+  console.log(breedId);
   fetchCatByBreed(breedId)
-    .then(data => {      
+    .then(data => {
       const { breeds, url } = data[0];
-      const { name, description, temperament } = breeds[0];      
+      const { name, description, temperament } = breeds[0];
       createMarkup(url, name, description, temperament);
     })
     .catch(error => {
