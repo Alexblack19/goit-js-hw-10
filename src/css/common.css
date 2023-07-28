@@ -1,8 +1,9 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
 body {
-    background-color: aquamarine;
+    background-color: rgb(13, 206, 142);
 }
+
 .is-hidden {
     position: absolute;
   
