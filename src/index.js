@@ -8,6 +8,8 @@ import { fetchBreeds, fetchCatByBreed } from './js/cat-api.js';
 
 const selectEl = document.querySelector('.breed-select');
 const divEl = document.querySelector('.cat-info');
+const loaderEl = document.querySelector('.loader');
+const errorEl = document.querySelector('.error');
 
 fetchBreeds()
   .then(data => {
@@ -23,10 +25,9 @@ fetchBreeds()
     console.log(error);
   });
 
-selectEl.addEventListener('change', onBreedSelect);
-
 function onBreedSelect(e) {
   const breedId = e.target.value;
+  
   console.log(breedId);
   fetchCatByBreed(breedId)
     .then(data => {
@@ -45,4 +46,7 @@ function createMarkup(url, name, description, temperament) {
                        <p>${description}</p>
                        <p><strong>Temperament:&#160;</strong>${temperament}</p>`;
   divEl.innerHTML = catInfoHTML;
+  loaderEl.classList.add('is-hidden')
 }
+
+selectEl.addEventListener('change', onBreedSelect);
