@@ -4,24 +4,18 @@ const API_KEY =
 
 export const fetchBreeds = () =>
   fetch(`${BASE_URL}/v1/breeds?api_key=${API_KEY}`).then(response => {
-    if (!response.ok) {   
-      console.log(response);   
-      throw new Error(response.status);
+    if (!response.ok) {
+      throw new Error(response.statusText);
     }
-    console.log(response);
     return response.json();
   });
 
 export const fetchCatByBreed = breedId =>
   fetch(
     `${BASE_URL}/v1/images/search?api_key=${API_KEY}&breed_id=${breedId}`
-  ).then(response => {    
+  ).then(response => {
     if (!response.ok) {
-      throw new Error(response.status);
+      throw new Error(response.statusText);
     }
     return response.json();
   });
-
-
-  console.log('jhgh;s');
-
