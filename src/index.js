@@ -43,7 +43,7 @@ function onBreedSelect(e) {
 }
 
 function createMarkup(url, name, description, temperament) {
-  const catInfoHTML = `<img src="${url}" alt="${name}" width=100%>
+  const catInfoHTML = `<img src="${url}" alt="${name}" width=400>
                        <h1>${name}</h1>
                        <p>${description}</p>
                        <p><strong>Temperament:&#160;</strong>${temperament}</p>`;
