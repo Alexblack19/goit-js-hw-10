@@ -18,5 +18,13 @@ fetchBreeds()
     });
   })
   .catch(error => {
-    console.log(error);
+    console.log(error);    
   });
+
+  selectEl.addEventListener('change', onBreedSelect);
+
+function onBreedSelect(e) {
+  console.dir(e.target);  
+}
+
+
