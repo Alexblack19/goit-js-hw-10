@@ -4,10 +4,11 @@ const API_KEY =
 
 export const fetchBreeds = () =>
   fetch(`${BASE_URL}/v1/breeds?api_key=${API_KEY}`).then(response => {
-    if (!response.ok) {
-      console.log(response);
+    if (!response.ok) {   
+      console.log(response);   
       throw new Error(response.status);
     }
+    console.log(response);
     return response.json();
   });
 
