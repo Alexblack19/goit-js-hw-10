@@ -1,13 +1,6 @@
-// import SlimSelect from 'slim-select'
-
-import { fetchBreeds } from './js/cat-api.js';
-
-// new SlimSelect({
-//     select: '.breed-select'
-//   })
+import { fetchBreeds, fetchCatByBreed } from './cat-api';
 
 const selectEl = document.querySelector('.breed-select')
-
 
 fetchBreeds()
   .then(renderCatCard)
@@ -17,6 +10,8 @@ fetchBreeds()
 
 function renderCatCard(cats) {
   console.log(cats);
+
+  // розмітка HTML
 }
 
 
