@@ -14,7 +14,7 @@ export const fetchBreeds = () =>
   });
 
 export const fetchCatByBreed = breedId =>
-  fetch(`${BASE_URL}/${END_POINT_IMAGES}?api-key=${API_KEY}`).then(response => {
+  fetch(`${BASE_URL}/${END_POINT_IMAGES}?api-key=${API_KEY}&breed_id=${breedId} `).then(response => {
     if (!response.ok) {
       throw new Error(response.status);
     }
