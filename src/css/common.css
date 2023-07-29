@@ -1,23 +1,58 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
-body {
-    background-color: rgb(146, 209, 188);
+/* h1 {
+  text-align: center;
+} */
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 .is-hidden {
-    position: absolute;
-  
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-  
-    white-space: nowrap;
-    clip-path: inset(100%);
-    clip: rect(0 0 0 0);
-    overflow: hidden;
-  }
-/*===================================================
-/*===================================================
-/*===================================================
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1148px;
+  background-color: rgb(127, 236, 255);
+}
+
+.breed-select {
+  max-width: 400px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+}
+
+.img-cat {
+  width: auto;
+}
+
+.cat-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;  
+  gap: 15px;
+}
+
+.wrap {
+  /* padding: 10px; */
+  max-width: 560px;
+}

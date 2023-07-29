@@ -11,6 +11,9 @@ const divEl = document.querySelector('.cat-info');
 const loaderEl = document.querySelector('.loader');
 const errorEl = document.querySelector('.error');
 
+loaderEl.classList.add('is-hidden');
+errorEl.classList.add('is-hidden');
+
 fetchBreeds()
   .then(data => {
     const markup = data
@@ -41,10 +44,14 @@ function onBreedSelect(e) {
 }
 
 function createMarkup(url, name, description, temperament) {
-  const catInfoHTML = `<img src="${url}" alt="${name}" width=400>
-                       <h1>${name}</h1>
-                       <p>${description}</p>
-                       <p><strong>Temperament:&#160;</strong>${temperament}</p>`;
+  const catInfoHTML = `<div class=wrap>
+                          <img class="img-cat" src="${url}" alt="${name}">
+                       </div>                       
+                       <div class=wrap>
+                          <h1>${name}</h1>
+                          <p>${description}</p>
+                          <p><strong>Temperament:&#160;</strong>${temperament}</p>
+                       </div>`;
   divEl.innerHTML = catInfoHTML;
 }
 
