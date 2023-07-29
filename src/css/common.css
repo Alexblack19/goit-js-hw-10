@@ -29,19 +29,6 @@ img {
   height: auto;
 }
 
-/* .container {
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 15px;
-  padding-right: 15px;
-  max-width: 1148px;
-}
-
-.wrap-select {
-  padding-left: 15px;
-  padding-right: 15px;
-} */
-
 .breed-select {
   display: inline;
   margin-top: 20px;
@@ -53,6 +40,8 @@ img {
 
 .tumb,
 .wrap {
+  padding-left: 15px;
+  padding-right: 15px;
   max-width: 500px;
 }
 
@@ -63,9 +52,8 @@ img {
 .cat-info {
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
+  /* align-items: center; */
+  flex-wrap: wrap;  
 }
 
 /* CSS-завантажувач */

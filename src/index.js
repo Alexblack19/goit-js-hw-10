@@ -14,8 +14,9 @@ const refs = {
   errorEl: document.querySelector('.error'),
 };
 
-refs.loaderEl.classList.add('is-hidden')
-refs.errorEl.classList.add('is-hidden')
+refs.loaderEl.textContent = '';
+refs.loaderEl.classList.replace('loader', 'is-hidden');
+refs.errorEl.classList.add('is-hidden');
 
 fetchBreeds()
   .then(data => createMarkupSelect(data))
@@ -24,13 +25,13 @@ fetchBreeds()
   });
 
 function onBreedSelect(e) {
-  refs.loaderEl.classList.add('is-hidden');
+  refs.loaderEl.classList.replace('is-hidden', 'loader');
   const breedId = e.target.value;
   fetchCatByBreed(breedId)
     .then(data => {
+      refs.loaderEl.classList.replace('loader', 'is-hidden');
       const { breeds, url } = data[0];
       const { name, description, temperament } = breeds[0];
-
       createMarkupCatInfo(url, name, description, temperament);
     })
     .catch(error => {
