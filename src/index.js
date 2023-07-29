@@ -21,7 +21,7 @@ fetchBreeds()
       .join();
     selectEl.innerHTML = markup;
     new SlimSelect({
-      select: '.breed-select',
+      select: selectEl,
     });
   })
   .catch(error => {
