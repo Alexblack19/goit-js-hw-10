@@ -29,6 +29,12 @@ img {
   height: auto;
 }
 
+p.loader,
+p.error,
+p.is-hidden {
+  text-align: center;
+}
+
 .breed-select {
   display: inline;
   margin-top: 20px;

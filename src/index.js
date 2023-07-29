@@ -14,8 +14,11 @@ const refs = {
   errorEl: document.querySelector('.error'),
 };
 
-refs.loaderEl.textContent = '';
-refs.loaderEl.classList.replace('loader', 'is-hidden');
+const {selectEl, divEl, loaderEl, errorEl} = refs;
+
+loaderEl.textContent = '';
+loaderEl.classList.replace('loader', 'is-hidden');
+errorEl.hidden = true;
 
 fetchBreeds()
   .then(data => createMarkupSelect(data))
@@ -24,27 +27,25 @@ fetchBreeds()
   });
 
 function onBreedSelect(e) {
-  refs.loaderEl.classList.replace('is-hidden', 'loader');
+  loaderEl.classList.replace('is-hidden', 'loader');
   const breedId = e.target.value;
   fetchCatByBreed(breedId)
     .then(data => {
-      refs.loaderEl.classList.replace('loader', 'is-hidden');
+      loaderEl.classList.replace('loader', 'is-hidden');
       const { breeds, url } = data[0];
       const { name, description, temperament } = breeds[0];
-      createMarkupCatInfo(url, name, description, temperament);
+      createMarkupCatInfo(url, name, description, temperament);      
     })
-    .catch(error => {
-      console.log(error);
-    });
+    .catch(onFetchError);
 }
 
 function createMarkupSelect(data) {
   const markup = data
     .map(({ id, name }) => `<option value="${id}">${name}</option>`)
     .join();
-  refs.selectEl.innerHTML = markup;
+  selectEl.innerHTML = markup;
   new SlimSelect({
-    select: refs.selectEl,
+    select: selectEl,
   });
 }
 
@@ -57,7 +58,16 @@ function createMarkupCatInfo(url, name, description, temperament) {
                           <p>${description}</p>
                           <p><strong>Temperament:&#160;</strong>${temperament}</p>
                        </div>`;
-  refs.divEl.innerHTML = catInfoHTML;
+  divEl.innerHTML = catInfoHTML;
+  divEl.classList.remove('is-hidden')
 }
 
-refs.selectEl.addEventListener('change', onBreedSelect);
+function onFetchError() {
+  loaderEl.classList.replace('loader', 'is-hidden');
+  divEl.classList.add('is-hidden')
+  Notiflix.Notify.failure(`${errorEl.textContent}`, {
+    position: 'center-center',
+  });
+}
+
+selectEl.addEventListener('change', onBreedSelect);
