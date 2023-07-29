@@ -1,5 +1,5 @@
 //======== Підключення бібліотек ========
-import axios from "axios";
+import axios from 'axios';
 import SlimSelect from 'slim-select';
 import 'slim-select/dist/slimselect.css';
 import Notiflix from 'notiflix';
@@ -14,37 +14,41 @@ const refs = {
   errorEl: document.querySelector('.error'),
 };
 
-refs.loaderEl.classList.add('is-hidden');
-refs.errorEl.classList.add('is-hidden');
+refs.loaderEl.classList.add('is-hidden')
+refs.errorEl.classList.add('is-hidden')
 
 fetchBreeds()
-  .then(data => {
-    const markup = data
-      .map(({ id, name }) => `<option value="${id}">${name}</option>`)
-      .join();
-    refs.selectEl.innerHTML = markup;
-    new SlimSelect({
-      select: refs.selectEl,
-    });
-  })
+  .then(data => createMarkupSelect(data))
   .catch(error => {
     console.log(error);
   });
 
 function onBreedSelect(e) {
+  refs.loaderEl.classList.add('is-hidden');
   const breedId = e.target.value;
   fetchCatByBreed(breedId)
     .then(data => {
       const { breeds, url } = data[0];
       const { name, description, temperament } = breeds[0];
-      createMarkup(url, name, description, temperament);
+
+      createMarkupCatInfo(url, name, description, temperament);
     })
     .catch(error => {
       console.log(error);
     });
 }
 
-function createMarkup(url, name, description, temperament) {
+function createMarkupSelect(data) {
+  const markup = data
+    .map(({ id, name }) => `<option value="${id}">${name}</option>`)
+    .join();
+  refs.selectEl.innerHTML = markup;
+  new SlimSelect({
+    select: refs.selectEl,
+  });
+}
+
+function createMarkupCatInfo(url, name, description, temperament) {
   const catInfoHTML = `<div class=tumb>
                           <img class="img-cat" src="${url}" alt="${name}">
                        </div>                       
@@ -57,7 +61,3 @@ function createMarkup(url, name, description, temperament) {
 }
 
 refs.selectEl.addEventListener('change', onBreedSelect);
-
-
-
-
