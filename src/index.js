@@ -24,7 +24,7 @@ fetchBreeds()
       .join();
     refs.selectEl.innerHTML = markup;
     new SlimSelect({
-      select: selectEl,
+      select: refs.selectEl,
     });
   })
   .catch(error => {
@@ -59,3 +59,7 @@ function createMarkup(url, name, description, temperament) {
 }
 
 refs.selectEl.addEventListener('change', onBreedSelect);
+
+
+
+console.log('hghgogjergreg');
