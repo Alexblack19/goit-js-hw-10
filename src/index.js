@@ -16,7 +16,6 @@ const refs = {
 
 refs.loaderEl.textContent = '';
 refs.loaderEl.classList.replace('loader', 'is-hidden');
-refs.errorEl.classList.add('is-hidden');
 
 fetchBreeds()
   .then(data => createMarkupSelect(data))
