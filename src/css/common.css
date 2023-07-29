@@ -37,12 +37,18 @@ img {
   max-width: 1148px;
 }
 
+.wrap-select {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
 .breed-select {
-  max-width: 500px;
+  display: inline;
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
+  max-width: 500px;
 }
 
 .tumb,

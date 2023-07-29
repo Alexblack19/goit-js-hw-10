@@ -33,8 +33,6 @@ fetchBreeds()
 
 function onBreedSelect(e) {
   const breedId = e.target.value;
-
-  console.log(breedId);
   fetchCatByBreed(breedId)
     .then(data => {
       const { breeds, url } = data[0];
@@ -62,4 +60,4 @@ refs.selectEl.addEventListener('change', onBreedSelect);
 
 
 
-console.log('hghgogjergreg');
+
