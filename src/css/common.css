@@ -1,19 +1,5 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
-body {
-  background-color: antiquewhite;
-}
-
-h1 {
-  text-align: center;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
 .is-hidden {
   position: absolute;
 
@@ -27,6 +13,20 @@ img {
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
+}
+
+body {
+  background-color: antiquewhite;
+}
+
+h1 {
+  text-align: center;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 .container {
@@ -45,6 +45,10 @@ img {
   margin-bottom: 20px;
 }
 
+.wrap {
+  max-width: 500px;
+}
+
 .img-cat {
   width: auto;
 }
@@ -57,6 +61,4 @@ img {
   gap: 20px;
 }
 
-.wrap {
-  max-width: 500px;
-}
+

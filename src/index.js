@@ -56,6 +56,3 @@ function createMarkup(url, name, description, temperament) {
 }
 
 selectEl.addEventListener('change', onBreedSelect);
-//===================================================
-//===================================================
-//===================================================
