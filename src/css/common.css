@@ -1,8 +1,12 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
-/* h1 {
+body {
+  background-color: antiquewhite;
+}
+
+h1 {
   text-align: center;
-} */
+}
 
 img {
   display: block;
@@ -28,16 +32,17 @@ img {
 .container {
   margin-left: auto;
   margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
   max-width: 1148px;
-  background-color: rgb(127, 236, 255);
 }
 
 .breed-select {
-  max-width: 400px;
+  max-width: 500px;
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .img-cat {
@@ -48,11 +53,10 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;  
-  gap: 15px;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .wrap {
-  /* padding: 10px; */
-  max-width: 560px;
+  max-width: 500px;
 }
