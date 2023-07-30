@@ -16,16 +16,14 @@ const refs = {
 
 const { selectEl, divEl, loaderEl, errorEl } = refs;
 
-// loaderEl.textContent = '';
-// divEl.classList.add('is-hidden');
+loaderEl.textContent = '';
 // loaderEl.classList.replace('loader','is-hidden');
-// errorEl.hidden = true;
+// divEl.classList.add('is-hidden');
+errorEl.classList.add('is-hidden');
 
 fetchBreeds()
   .then(data => createMarkupSelect(data))
-  .catch(error => {
-    console.log(error);
-  });
+  .catch(onFetchError);
 
 function onBreedSelect(e) {
   // loaderEl.classList.replace('is-hidden', 'loader');
@@ -66,8 +64,8 @@ function createMarkupCatInfo(url, name, description, temperament) {
 }
 
 function onFetchError() {
-  // loaderEl.classList.replace('loader', 'is-hidden');
-  // divEl.classList.add('is-hidden');
+  loaderEl.classList.replace('loader', 'is-hidden');
+  divEl.classList.add('is-hidden');
   Notiflix.Notify.failure(`${errorEl.textContent}`, {
     position: 'center-center',
   });
