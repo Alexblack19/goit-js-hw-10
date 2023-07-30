@@ -17,6 +17,7 @@ const refs = {
 const {selectEl, divEl, loaderEl, errorEl} = refs;
 
 loaderEl.textContent = '';
+divEl.classList.add('is-hidden');
 loaderEl.classList.replace('loader', 'is-hidden');
 errorEl.hidden = true;
 
@@ -28,6 +29,7 @@ fetchBreeds()
 
 function onBreedSelect(e) {
   loaderEl.classList.replace('is-hidden', 'loader');
+  divEl.classList.add('is-hidden');
   const breedId = e.target.value;
   fetchCatByBreed(breedId)
     .then(data => {
@@ -43,7 +45,7 @@ function createMarkupSelect(data) {
   const markup = data
     .map(({ id, name }) => `<option value="${id}">${name}</option>`)
     .join();
-  selectEl.innerHTML = markup;
+  selectEl.innerHTML = markup;  
   new SlimSelect({
     select: selectEl,
   });
