@@ -64,7 +64,7 @@ function createMarkupCatInfo(url, name, description, temperament) {
 }
 
 function onFetchError() {
-  loaderEl.classList.replace('loader', 'is-hidden');
+  loaderEl.classList.replace('loader', 'is-hidden');  
   divEl.classList.add('is-hidden');
   Notiflix.Notify.failure(`${errorEl.textContent}`, {
     position: 'center-center',
