@@ -18,7 +18,7 @@ const { selectEl, divEl, loaderEl, errorEl } = refs;
 
 // loaderEl.textContent = '';
 // divEl.classList.add('is-hidden');
-// loaderEl.classList.replace('loader', 'is-hidden');
+// loaderEl.classList.replace('loader','is-hidden');
 // errorEl.hidden = true;
 
 fetchBreeds()
