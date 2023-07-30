@@ -14,7 +14,7 @@ const refs = {
   errorEl: document.querySelector('.error'),
 };
 
-const {selectEl, divEl, loaderEl, errorEl} = refs;
+const { selectEl, divEl, loaderEl, errorEl } = refs;
 
 loaderEl.textContent = '';
 divEl.classList.add('is-hidden');
@@ -36,7 +36,7 @@ function onBreedSelect(e) {
       loaderEl.classList.replace('loader', 'is-hidden');
       const { breeds, url } = data[0];
       const { name, description, temperament } = breeds[0];
-      createMarkupCatInfo(url, name, description, temperament);      
+      createMarkupCatInfo(url, name, description, temperament);
     })
     .catch(onFetchError);
 }
@@ -45,7 +45,7 @@ function createMarkupSelect(data) {
   const markup = data
     .map(({ id, name }) => `<option value="${id}">${name}</option>`)
     .join();
-  selectEl.innerHTML = markup;  
+  selectEl.innerHTML = markup;
   new SlimSelect({
     select: selectEl,
   });
@@ -61,12 +61,12 @@ function createMarkupCatInfo(url, name, description, temperament) {
                           <p><strong>Temperament:&#160;</strong>${temperament}</p>
                        </div>`;
   divEl.innerHTML = catInfoHTML;
-  divEl.classList.remove('is-hidden')
+  divEl.classList.remove('is-hidden');
 }
 
 function onFetchError() {
   loaderEl.classList.replace('loader', 'is-hidden');
-  divEl.classList.add('is-hidden')
+  divEl.classList.add('is-hidden');
   Notiflix.Notify.failure(`${errorEl.textContent}`, {
     position: 'center-center',
   });
