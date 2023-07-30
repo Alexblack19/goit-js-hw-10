@@ -42,10 +42,11 @@ function onBreedSelect(e) {
 }
 
 function createMarkupSelect(data) {
+  selectEl.classList.replace('is-hidden', 'breed-select');
   const markup = data
     .map(({ id, name }) => `<option value="${id}">${name}</option>`)
     .join();
-  selectEl.innerHTML = markup;
+  selectEl.innerHTML = markup;  
   new SlimSelect({
     select: selectEl,
   });
