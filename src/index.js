@@ -1,11 +1,9 @@
 //======== Підключення бібліотек ========
-import axios from 'axios';
 import SlimSelect from 'slim-select';
 import 'slim-select/dist/slimselect.css';
 import Notiflix from 'notiflix';
 // ======================================
-axios.defaults.headers.common['x-api-key'] =
-  'live_9WSo2Jn9CKnphyJArmkanU7amzSO2MnioxrGT7XMimNpxzxlc0kjKpWz3hL08Pnd';
+
 import { fetchBreeds, fetchCatByBreed } from './js/cat-api.js';
 
 const refs = {
@@ -18,8 +16,8 @@ const refs = {
 const { selectEl, divEl, loaderEl, errorEl } = refs;
 
 loaderEl.textContent = '';
-// loaderEl.classList.replace('loader','is-hidden');
-// divEl.classList.add('is-hidden');
+loaderEl.classList.replace('loader','is-hidden');
+divEl.classList.add('is-hidden');
 errorEl.classList.add('is-hidden');
 
 fetchBreeds()
@@ -27,12 +25,12 @@ fetchBreeds()
   .catch(onFetchError);
 
 function onBreedSelect(e) {
-  // loaderEl.classList.replace('is-hidden', 'loader');
-  // divEl.classList.add('is-hidden');
+  loaderEl.classList.replace('is-hidden', 'loader');
+  divEl.classList.add('is-hidden');
   const breedId = e.target.value;
   fetchCatByBreed(breedId)
     .then(data => {
-      // loaderEl.classList.replace('loader', 'is-hidden');
+      loaderEl.classList.replace('loader', 'is-hidden');
       const { breeds, url } = data[0];
       const { name, description, temperament } = breeds[0];
       createMarkupCatInfo(url, name, description, temperament);
@@ -41,7 +39,7 @@ function onBreedSelect(e) {
 }
 
 function createMarkupSelect(data) {  
-  // selectEl.classList.replace('is-hidden', 'breed-select');
+  selectEl.classList.replace('is-hidden', 'breed-select');
   const markup = data
     .map(({ id, name }) => `<option value="${id}">${name}</option>`)
     .join();
@@ -61,7 +59,7 @@ function createMarkupCatInfo(url, name, description, temperament) {
                           <p><strong>Temperament:&#160;</strong>${temperament}</p>
                        </div>`;
   divEl.innerHTML = catInfoHTML;
-  // divEl.classList.remove('is-hidden');
+  divEl.classList.remove('is-hidden');
 }
 
 function onFetchError() {
