@@ -16,7 +16,7 @@ const refs = {
 const { selectEl, divEl, loaderEl, errorEl } = refs;
 
 loaderEl.textContent = '';
-loaderEl.classList.replace('loader','is-hidden');
+loaderEl.classList.replace('is-hidden','loader');
 divEl.classList.add('is-hidden');
 errorEl.classList.add('is-hidden');
 
@@ -43,7 +43,8 @@ function createMarkupSelect(data) {
   const markup = data
     .map(({ id, name }) => `<option value="${id}">${name}</option>`)
     .join();
-  selectEl.innerHTML = markup;  
+  selectEl.innerHTML = markup; 
+  loaderEl.classList.replace('loader','is-hidden'); 
   new SlimSelect({
     select: selectEl,
   });
