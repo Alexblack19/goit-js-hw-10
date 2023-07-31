@@ -16,7 +16,7 @@ const refs = {
 const { selectEl, divEl, loaderEl, errorEl } = refs;
 
 loaderEl.textContent = '';
-loaderEl.classList.replace('is-hidden','loader');
+loaderEl.classList.replace('is-hidden', 'loader');
 divEl.classList.add('is-hidden');
 errorEl.classList.add('is-hidden');
 
@@ -30,7 +30,6 @@ function onBreedSelect(e) {
   const breedId = e.target.value;
   fetchCatByBreed(breedId)
     .then(data => {
-      loaderEl.classList.replace('loader', 'is-hidden');
       const { breeds, url } = data[0];
       const { name, description, temperament } = breeds[0];
       createMarkupCatInfo(url, name, description, temperament);
@@ -38,19 +37,20 @@ function onBreedSelect(e) {
     .catch(onFetchError);
 }
 
-function createMarkupSelect(data) {  
+function createMarkupSelect(data) {
   selectEl.classList.replace('is-hidden', 'breed-select');
   const markup = data
     .map(({ id, name }) => `<option value="${id}">${name}</option>`)
     .join();
-  selectEl.innerHTML = markup; 
-  loaderEl.classList.replace('loader','is-hidden'); 
+  selectEl.innerHTML = markup;
+  loaderEl.classList.replace('loader', 'is-hidden');
   new SlimSelect({
     select: selectEl,
   });
 }
 
 function createMarkupCatInfo(url, name, description, temperament) {
+  loaderEl.classList.replace('loader', 'is-hidden');
   const catInfoHTML = `<div class=tumb>
                           <img class="img-cat" src="${url}" alt="${name}">
                        </div>                       
@@ -64,7 +64,7 @@ function createMarkupCatInfo(url, name, description, temperament) {
 }
 
 function onFetchError() {
-  loaderEl.classList.replace('loader', 'is-hidden');  
+  loaderEl.classList.replace('loader', 'is-hidden');
   divEl.classList.add('is-hidden');
   Notiflix.Notify.failure(`${errorEl.textContent}`, {
     position: 'center-center',
