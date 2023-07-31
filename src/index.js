@@ -4,7 +4,8 @@ import SlimSelect from 'slim-select';
 import 'slim-select/dist/slimselect.css';
 import Notiflix from 'notiflix';
 // ======================================
-
+axios.defaults.headers.common['x-api-key'] =
+  'live_9WSo2Jn9CKnphyJArmkanU7amzSO2MnioxrGT7XMimNpxzxlc0kjKpWz3hL08Pnd';
 import { fetchBreeds, fetchCatByBreed } from './js/cat-api.js';
 
 const refs = {
@@ -39,7 +40,7 @@ function onBreedSelect(e) {
     .catch(onFetchError);
 }
 
-function createMarkupSelect(data) {
+function createMarkupSelect(data) {  
   // selectEl.classList.replace('is-hidden', 'breed-select');
   const markup = data
     .map(({ id, name }) => `<option value="${id}">${name}</option>`)
